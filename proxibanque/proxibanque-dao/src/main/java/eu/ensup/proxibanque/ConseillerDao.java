@@ -35,11 +35,11 @@ public class ConseillerDao {
 		System.out.println("connexion etablie");
 		System.out.println(client);
 		try {
-			String sql = "INSERT INTO `client` (`nom`,`prenom`,`cp`,`ville`,`telephone`,`email`) VALUES ('" + client.nom
-					+ "','" + client.prenom + "','" + client.cp + "','" + client.ville + "','" + client.telephone
-					+ "','" + client.email + "');";
+			String sql = "INSERT INTO `client` (`nom`,`prenom`,`cp`,`ville`,`telephone`) VALUES ('" + client.getNom()
+					+ "','" + client.getPrenom() + "','" + client.getCp() + "','" + client.getVille() + "','" + client.getTelephone()
+					+ "');";
 			System.out.println("execution requete");
-			cd.stat.executeQuery(sql);
+			cd.stat.executeUpdate(sql);
 			System.out.println("requete execut�e");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,7 +56,7 @@ public class ConseillerDao {
 		System.out.println("connexion etablie");
 		System.out.println(client);
 		try {
-			String sql = "DELETE FROM `client` WHERE `id`='" + client.id + "';";
+			String sql = "DELETE FROM `client` WHERE `id`='" + client.getId() + "';";
 			System.out.println("execution requete");
 			cd.stat.executeUpdate(sql);
 			System.out.println("requete execut�e");
@@ -75,9 +75,9 @@ public class ConseillerDao {
 		System.out.println("connexion etablie");
 		System.out.println(client);
 		try {
-			String sql = "UPDATE `client` SET `nom`='" + client.nom + "' ,`prenom`='" + client.prenom + "',`cp`='"
-					+ client.cp + "',`ville`='" + client.ville + "',`telephone`='" + client.telephone + "' WHERE `id`='"
-					+ client.id + "';";
+			String sql = "UPDATE `client` SET `nom`='" + client.getNom() + "' ,`prenom`='" + client.getPrenom() + "',`cp`='"
+					+ client.getCp() + "',`ville`='" + client.getVille() + "',`telephone`='" + client.getTelephone() + "' WHERE `id`='"
+					+ client.getId() + "';";
 			System.out.println("execution requete");
 			cd.stat.executeUpdate(sql);
 			System.out.println("requete execut�e");
@@ -96,8 +96,8 @@ public class ConseillerDao {
 		System.out.println("connexion etablie");
 		System.out.println(client);
 		try {
-			String sql = "SELECT * FROM `compte_courant` WHERE `idClient`='" + client.id
-					+ "'; SELECT * FROM `compte_epargne` WHERE `idClient`='" + client.id + "';";
+			String sql = "SELECT * FROM `compte_courant` WHERE `idClient`='" + client.getId()
+					+ "'; SELECT * FROM `compte_epargne` WHERE `idClient`='" + client.getId() + "';";
 			System.out.println("execution requete");
 			cd.stat.executeUpdate(sql);
 			System.out.println("requete execut�e");

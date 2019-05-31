@@ -1,4 +1,4 @@
-package eu.ensup.formulaire.dao;
+package eu.ensup.proxibanque;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,7 @@ public class ConnectionDao {
 	public Connection cnx;
 	public Statement stat;
 
-	// Connexion a la base de données
+	// Connexion a la base de donnï¿½es
 	public Connection connection() { // connexion a la bdd
 		String url = "jdbc:mysql://localhost/proxibanquebdd";
 		String login = "root";
@@ -31,8 +31,8 @@ public class ConnectionDao {
 		return cnx;
 	}
 
-	// Deconnexion de la base de données
-	public void deconnection() { // déconnexion de la base
+	// Deconnexion de la base de donnï¿½es
+	public void deconnection() { // dï¿½connexion de la base
 		try {
 			cnx.close();
 			stat.close();

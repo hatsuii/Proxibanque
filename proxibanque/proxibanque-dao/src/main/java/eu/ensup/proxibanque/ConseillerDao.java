@@ -1,4 +1,4 @@
-package eu.ensup.proxibanque.dao;
+package eu.ensup.proxibanque;
 
 import java.sql.SQLException;
 
@@ -18,7 +18,7 @@ public class ConseillerDao {
 			String sql = "SELECT * FROM `client` ORDER BY `nom` asc;";
 			System.out.println("execution requete");
 			cd.stat.executeUpdate(sql);
-			System.out.println("requete executée");
+			System.out.println("requete executï¿½e");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -39,7 +39,7 @@ public class ConseillerDao {
 					+ "','" + client.email + "');";
 			System.out.println("execution requete");
 			cd.stat.executeUpdate(sql);
-			System.out.println("requete executée");
+			System.out.println("requete executï¿½e");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -58,7 +58,7 @@ public class ConseillerDao {
 			String sql = "DELETE FROM `client` WHERE `id`='" + client.id + "';";
 			System.out.println("execution requete");
 			cd.stat.executeUpdate(sql);
-			System.out.println("requete executée");
+			System.out.println("requete executï¿½e");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -79,7 +79,7 @@ public class ConseillerDao {
 					+ client.id + "';";
 			System.out.println("execution requete");
 			cd.stat.executeUpdate(sql);
-			System.out.println("requete executée");
+			System.out.println("requete executï¿½e");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -99,7 +99,7 @@ public class ConseillerDao {
 					+ "'; SELECT * FROM `compte_epargne` WHERE `idClient`='" + client.id + "';";
 			System.out.println("execution requete");
 			cd.stat.executeUpdate(sql);
-			System.out.println("requete executée");
+			System.out.println("requete executï¿½e");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -1,7 +1,8 @@
-package eu.ensup.proxibanque;
+package eu.ensup.proxibanque.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -10,32 +11,27 @@ import java.sql.Statement;
  */
 public class ConnectionDao {
 
-	public Connection cnx;
-	public Statement stat;
+	private static Statement statement;
 
-	// Connexion a la base de donnï¿½es
-	public Connection connection() { // connexion a la bdd
-		String url = "jdbc:mysql://localhost/proxibanquebdd";
-		String login = "root";
-		String password = "";
+	public Statement connection() throws SQLException { // connexion a la bdd
+		 java.sql.Connection conn = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
 
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			cnx = DriverManager.getConnection(url, login, password);
-			stat = cnx.createStatement();
-		} catch (Exception e) {
-			System.err.println("Got an exception! ");
-			System.err.println(e.getMessage());
-		}
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/proxibanquebdd?user=root&password=");
+            statement = conn.createStatement();
+            
+        } catch (ClassNotFoundException e) {
 
-		return cnx;
+            System.out.println("Connextion avec la base de données impossible");
+        }
+        return statement;
 	}
 
-	// Deconnexion de la base de donnï¿½es
-	public void deconnection() { // dï¿½connexion de la base
+	public void deconnection() {
 		try {
-			cnx.close();
-			stat.close();
+//			cnx.close();
+//			stat.close();
 		} catch (Exception e) {
 			System.err.println("Got an exception! ");
 			System.err.println(e.getMessage());

@@ -1,11 +1,12 @@
-package eu.ensup.proxibanque;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package eu.ensup.proxibanque.dao;
 
+import eu.ensup.proxibanque.dao.ConnectionDao;
+import eu.ensup.proxibanque.domaine.Transaction;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,16 +19,16 @@ import java.util.ArrayList;
 public class TransactionDao {
     
     
-    public void faireVirement(Transaction transaction)
+    public void faireVirement(Transaction transaction) throws SQLException
     {
         ConnectionDao cd = new ConnectionDao();
 
-		cd.connection();
+		Statement stm = cd.connection();
 		try {
 			String sql = "INSERT INTO `transaction` (`date`,`montant`,`compteCrediteur`,`compteDebiteur`) VALUES ('" + transaction.getDate()
 					+ "','" + transaction.getMotant()+ "','" + transaction.getCompteCrediteur()+ "','" + transaction.getCompteDebiteur()+ "');";
 			
-			cd.stat.executeUpdate(sql);
+			stm.executeUpdate(sql);
                         
 		} catch (SQLException e) {
 			e.printStackTrace();

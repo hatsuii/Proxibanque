@@ -35,7 +35,7 @@ public class ConseillerService {
         return liste;
     }
     
-    public void mettreAjourClient(Client client)
+    public void mettreAjourClient(Client client) throws SQLException
     {
         ConseillerDao dao = new ConseillerDao();
         dao.updateClient(client);

@@ -37,7 +37,29 @@ public class ConseillerDao {
 		cd.deconnection();
                 return liste;
 	}
+ public Conseiller getIdConseiilerByUserPassword(String login, String password) throws SQLException
+        {
+            Conseiller bo = new Conseiller();
+            ConnectionDao cd = new ConnectionDao();
+                
+		
+                ArrayList<Conseiller> liste = new ArrayList<Conseiller>();
+            Statement stm =  cd.connection();
+            ResultSet res = stm.executeQuery("SELECT * FROM Conseiller where login = '"+ login +"' and password = '"+password+"'");
 
+            while (res.next()) {
+            
+            bo.setId(Integer.parseInt(res.getString("id")));
+            bo.setNom(res.getString("nom"));
+            bo.setPrenom(res.getString("prenom"));
+            bo.setIdAgence(res.getString("idAgence"));
+            bo.setProfil(res.getString("profil"));
+
+            liste.add(bo);
+        }
+            
+            return bo;
+        }
 	public static void insertClient(Client client) throws SQLException {
 
 		ConnectionDao cd = new ConnectionDao();

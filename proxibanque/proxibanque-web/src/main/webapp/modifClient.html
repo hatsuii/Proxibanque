@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<title>Modification client</title>
+</head>
+
+
+<body>
+	<h1>
+		Bienvenue<br> <small>sur Proxibanque</small>
+	</h1>
+	<ul class="nav nav-tabs">
+		 <li class="nav-item">
+		   <a class="nav-link active" href="accueil.html">Accueil</a>
+		 </li>
+		 <li class="nav-item">
+		   <a class="nav-link active" href="creationClient.html">Créer un client</a>
+		 </li>
+		 <li class="nav-item">
+		   <a class="nav-link" href="listeClient.html">Liste des clients</a>
+		 </li>
+		 <li class="nav-item">
+		   <a class="nav-link" href="supprClient.html">Supprimer un client</a>
+		 </li>
+		 <li class="nav-item">
+		   <a class="nav-link" href="virement.html">Effectuer un virement</a>
+		 </li>
+	</ul>
+
+<p><input id="deco" type="image" width="50" height="50" src="deconnexion.png" onclick="javascript:location.href='login.html'" ><p>
+	<form name="formulaire" action="listeClient.html" method="post">
+		<fieldset class="fieldset">
+			<legend>Formulaire de modification du client  ${client.id}</legend>
+			Nom<br>
+
+				<input type="text" class="form-control" name="nom" placeholder="Nom"
+					>
+
+			<br> Prenom<br>
+
+				<input type="text" class="form-control" name="prenom"
+					placeholder="Prénom" >
+
+			<br> Adresse<br>
+
+				<input type="text" class="form-control" name="adresse"
+					placeholder="Adresse">
+
+			<br> Code Postal<br>
+
+				<input type="text" class="form-control" name="codepostal"
+					placeholder="Code Postal">
+
+			<br> Ville<br>
+
+				<input type="text" class="form-control" name="ville"
+					placeholder="Ville">
+
+			<br> Telephone<br>
+
+				<input type="text" class="form-control" name="telephone"
+					placeholder="Telephone">
+
+			<br> E-mail<br>
+
+				<input type="email" class="form-control" name="email"
+					placeholder="E-mail">
+
+			<p>
+				<input type="hidden" name="idconseiller"
+					value="identifiant conseiller" readonly="readonly">
+			</p>
+			<br> <input type="submit" value="Modifier" onclick="javascript:location.href='listeClient.html'" class="btn btn-primary"/> 
+					<input type="submit" value="Retour" onclick="javascript:location.href='accueil.html'" class="btn btn-primary"/><br>
+		</fieldset>
+	</form>
+<body>
+<p></p>	
+</html>

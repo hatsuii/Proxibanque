@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<title>Creation client</title>
+</head>
+
+
+<body>
+	<h1>
+		Bienvenue<br> <small>sur Proxibanque</small>
+	</h1>
+	<ul class="nav nav-tabs">
+		 <li class="nav-item">
+		   <a class="nav-link active" href="accueil.html">Accueil</a>
+		 </li>
+		 <li class="nav-item">
+		   <a class="nav-link active" href="creationClient.html">Créer un client</a>
+		 </li>
+		 <li class="nav-item">
+		   <a class="nav-link" href="listeClient.html">Liste des clients</a>
+		 </li>
+		 <li class="nav-item">
+		   <a class="nav-link" href="supprClient.html">Supprimer un client</a>
+		 </li>
+		 <li class="nav-item">
+		   <a class="nav-link" href="virement.html">Effectuer un virement</a>
+		 </li>
+	</ul>
+
+<FORM>	
+	<div class="container-fluid">
+		<h4>
+			<b>Liste des comptes du client ${client.id}</b>
+		</h4>
+		
+		<div class="raw">
+			<h2>Comptes Courants</h2>
+			<table class="listeClient">
+				<thead style="font-variant: small-caps;">
+					<th>Id Compte</th>
+					<th>Solde</th>
+					<th>Decouvert</th>
+					<th>Supression</th>
+				</thead>
+				<tbody>
+					<c:forEach var="CompteCourant" items="${listCompteCourant}">
+						<tr>
+							<td>${CompteCourant.id}</td>
+							<td>${CompteCourant.solde}</td>
+							<td>${CompteCourant.decouvert}</td>
+							<td><a href="${deleteCompteCourantUrl}${CompteCourant.id}&action=supressionCompteCourant&idCsl=${idCsl}&idClient=${idClient}"><button>
+									<h7> <font style="font-variant: small-caps;">Suppression</font></h7>
+								</button></a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+		</div>
+		<div class="raw">
+		<h2>Comptes Epargnes</h2>
+			<table class="listeClient">
+				<thead style="font-variant: small-caps;">
+					<th>Id Compte</th>
+					<th>Solde</th>
+					<th>Taux</th>
+					<th>Supression</th>
+				</thead>
+				<tbody>
+					<c:forEach var="CompteEpargne" items="${listCompteEpargne}">
+						<tr>
+							<td>${CompteEpargne.id}</td>
+							<td>${CompteEpargne.solde}</td>
+							<td>${CompteEpargne.taux}</td>
+							<td><a href="${deleteCompteCourantUrl}${CompteEpargne.id}&action=supressionCompteEpargne&idCsl=${idCsl}&idClient=${idClient}"><button>
+									<h7> <font style="font-variant: small-caps;">Suppression</font></h7>
+								</button></a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+			
+		</div>
+	</div>
+
+</form>
+
+</body>
+</html>
